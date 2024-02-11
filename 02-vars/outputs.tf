@@ -17,6 +17,10 @@ output "value_in_map" {
 
 #Input not declared but expecting default value
 
-output "value_in_map1" {
-  value = var.v3["abc1"] #provide the key "abc"
+#output "value_in_map1" {
+#  value = var.v3["abc1"] #provide the key "abc"
+#}
+
+output "value_in map1" {
+  value = lookup (var.v3["abc1"],null)
 }
