@@ -24,3 +24,7 @@ output "value_in_map" {
 output "value_in_map1" {
   value = lookup (var.v3,"abc1", "doesn't exists")
 }
+
+output "Second_value_in_lists" {
+  value = element(var.v2, 4)
+}
