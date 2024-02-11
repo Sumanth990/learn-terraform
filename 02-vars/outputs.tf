@@ -21,6 +21,6 @@ output "value_in_map" {
 #  value = var.v3["abc1"] #provide the key "abc"
 #}
 
-output "value_in map1" {
+output "value_in_map1" {
   value = lookup (var.v3["abc1"],null)
 }
