@@ -30,5 +30,5 @@ output "Second_value_in_lists" {
 }
 
 output "FruitDetails" {
-  value = "Fruit Name - Apple, Quantity - ${var.fruits["apple"]["Quantity"]}"
+  value = "Fruit Name - Apple, Quantity - ${var.fruits["apple"]["quantity"]}"
 }
