@@ -14,3 +14,9 @@ output "Second_value_in_list" {
 output "value_in_map" {
   value = var.v3["abc"] #provide the key "abc"
 }
+
+#Input not declared but expecting default value
+
+output "value_in_map1" {
+  value = var.v3["abc1"] #provide the key "abc"
+}
