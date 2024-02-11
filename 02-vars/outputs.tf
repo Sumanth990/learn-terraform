@@ -22,5 +22,5 @@ output "value_in_map" {
 #}
 
 output "value_in_map1" {
-  value = lookup (var.v3,"abc1", "doesn't, exists")
+  value = lookup (var.v3,"abc1", "doesn't exists")
 }
