@@ -1,29 +1,53 @@
-resource "aws_instance" "Frontend" {
+resource "aws_instance" "frontend" {
   ami                    = "ami-0f3c7d07486cad139"
   vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
   instance_type          = "t3.micro"
   #Terraform standards - separate block separate with empty line, also maintains equals in same level
   tags = {
-    Name = "Frontend-dev"
+    Name = "frontend-dev"
   }
 }
 
-resource "aws_instance" "Backend" {
+resource "aws_route53_record" "Frontend" {
+  zone_id = "Z0087522270V65SMI1NKT"
+  name    = "frontend-dev"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.frontend.private_ip]
+}
+
+resource "aws_instance" "backend" {
   ami                    = "ami-0f3c7d07486cad139"
   vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
   instance_type          = "t3.micro"
-  #Terraform standards - separate block separate with empty line, also maintains equals in same level
+
   tags = {
-    Name = "Backend-dev"
+    Name = "backend-dev"
   }
 }
 
-resource "aws_instance" "MySQL" {
+resource "aws_route53_record" "backend" {
+  zone_id = "Z0087522270V65SMI1NKT"
+  name    = "backend-dev"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.backend.private_ip]
+}
+
+resource "aws_instance" "mysql" {
   ami                    = "ami-0f3c7d07486cad139"
   vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
   instance_type          = "t3.micro"
-  #Terraform standards - separate block separate with empty line, also maintains equals in same level
+
   tags = {
-    Name = "MySQL-dev"
+    Name = "mysql-dev"
   }
+}
+
+resource "aws_route53_record" "mysql" {
+  zone_id = "Z0087522270V65SMI1NKT"
+  name    = "frontend-dev"
+  type    = "A"
+  ttl     = 30
+  records = [aws_instance.mysql.private_ip]
 }
