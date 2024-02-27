@@ -1,7 +1,7 @@
 resource "aws_instance" "frontend" {
-  ami                    = "ami-0f3c7d07486cad139"
-  vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
-  instance_type          = "t3.micro"
+  ami                    = var.ami
+  vpc_security_group_ids = var.vpc_security_group_ids
+  instance_type          = var.instance_type
   #Terraform standards - separate block separate with empty line, also maintains equals in same level
   tags = {
     Name = "frontend-dev"
@@ -9,7 +9,7 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z0087522270V65SMI1NKT"
+  zone_id = var.zone_id
   name    = "frontend-dev"
   type    = "A"
   ttl     = 30
@@ -17,9 +17,9 @@ resource "aws_route53_record" "frontend" {
 }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-0f3c7d07486cad139"
-  vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
-  instance_type          = "t3.micro"
+  ami                    = var.ami
+  vpc_security_group_ids = var.vpc_security_group_ids
+  instance_type          = var.instance_type
 
   tags = {
     Name = "backend-dev"
@@ -27,7 +27,7 @@ resource "aws_instance" "backend" {
 }
 
 resource "aws_route53_record" "backend" {
-  zone_id = "Z0087522270V65SMI1NKT"
+  zone_id = var.zone_id
   name    = "backend-dev"
   type    = "A"
   ttl     = 30
@@ -35,9 +35,9 @@ resource "aws_route53_record" "backend" {
 }
 
 resource "aws_instance" "mysql" {
-  ami                    = "ami-0f3c7d07486cad139"
-  vpc_security_group_ids = ["sg-04683e9af944ef9c6"]
-  instance_type          = "t3.micro"
+  ami                    = var.ami
+  vpc_security_group_ids = var.vpc_security_group_ids
+  instance_type          = var.instance_type
 
   tags = {
     Name = "mysql-dev"
@@ -45,7 +45,7 @@ resource "aws_instance" "mysql" {
 }
 
 resource "aws_route53_record" "mysql" {
-  zone_id = "Z0087522270V65SMI1NKT"
+  zone_id = var.zone_id
   name    = "mysql-dev"
   type    = "A"
   ttl     = 30
