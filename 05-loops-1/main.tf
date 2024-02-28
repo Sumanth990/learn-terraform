@@ -9,12 +9,12 @@ output "test" {
 }
 
 resource "aws_instance" "test" {
-  count         = 3
-  ami           = "ami-0f3c7d07486cad139"
-  instance_type = "t3.micro"
+  count                  = 3
+  ami                    = "ami-0f3c7d07486cad139"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-020e23d79f8100a7e"]
 
   tags = {
-    name = test
+    name = "test"
   }
 }
