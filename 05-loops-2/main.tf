@@ -1,7 +1,7 @@
 variable "fruits1" {
   default = {
-    apple = 10
     banana = 100
+    apple = 10
   }
 }
 
