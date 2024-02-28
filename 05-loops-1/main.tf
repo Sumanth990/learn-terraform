@@ -15,6 +15,6 @@ resource "aws_instance" "test" {
   vpc_security_group_ids = ["sg-020e23d79f8100a7e"]
 
   tags = {
-    Name = "test"
+    Name = "test-$count"
   }
 }
