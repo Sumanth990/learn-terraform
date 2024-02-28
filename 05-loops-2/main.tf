@@ -8,7 +8,7 @@ variable "fruits1" {
 variable "fruits2" {
   default = {
     apple = {
-      name = "apple"
+      name = "apple"     #written in {} is a map
       quantity = 10
     }
     banana = {
@@ -22,5 +22,12 @@ resource "null_resource" "test1" {
   for_each = var.fruits1
   provisioner "local-exec" {
     command = "echo ${each.key} = ${each.value}"
+  }
+}
+
+resource "null_resource" "test2" {
+  for_each = var.fruits1
+  provisioner "local-exec" {
+    command = "echo ${lookup(each.value,"name","null" )} = ${lookup(each.value,"quantity","null")}"
   }
 }
