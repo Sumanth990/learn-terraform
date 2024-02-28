@@ -11,5 +11,5 @@ variable "zone_id" {
 }
 
 variable "components" {
-  default = ["frontend", "mysql", "backend"]
+  default = ["frontend", "mysql", "backend"] # changed the order from ["frontend", "backend", "mysql"]
 }
