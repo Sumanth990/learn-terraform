@@ -1,5 +1,5 @@
 module "app-resources" {
-  source                 = "modules/app-resources"
+  source                 = "./modules/app-resources"
   for_each               = var.components
   instance_type          = lookup(var.components, "instance_type", "t2.micro")
   name                   = lookup(var.components, "name", null)
