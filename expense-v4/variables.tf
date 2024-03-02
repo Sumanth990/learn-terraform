@@ -12,8 +12,8 @@ variable "zone_id" {
 
 variable "components" {
   default = {
-    frontend = {
-      name          = "frontend"
+    frontend = {                   # each.key - frontend is each.key
+      name          = "frontend"   # each.value - whatever present in {} is each.value
       instance_type = "t3.micro"
     }
     backend = {
