@@ -1,0 +1,1 @@
+x = ["Apple", "banana"]
