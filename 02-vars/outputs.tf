@@ -23,5 +23,5 @@
 #}
 
 output "Second_value_in_lists" {
-  value = element(var.v3, 1)
+  value = element(var.v2, 1)
 }
