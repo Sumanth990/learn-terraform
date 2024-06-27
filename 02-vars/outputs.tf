@@ -23,5 +23,5 @@
 #}
 
 output "Second_value_in_lists" {
-  value = element(var.v2, 100)
+  value = element(var.v2, 99)
 }
