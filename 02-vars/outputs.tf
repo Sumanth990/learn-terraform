@@ -17,3 +17,7 @@ output "value_in_map" {
 output "value_in_map1" {
   value = var.v3["abcd"]
 }
+
+output "value_in_map2" {
+  value = lookup(var.v3,"abcd", "what?")
+}
