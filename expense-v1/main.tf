@@ -1,6 +1,6 @@
 resource "aws_instance" "frontend" {
-  ami           = "ami-0b4f379183e5706b9"
-  instance_type = "t3.micro"
+  ami                    = "ami-0b4f379183e5706b9"
+  instance_type          = "t3.micro"
   vpc_security_group_ids = ["sg-05eadccf3fd7c62d1"]
 
   tags = {
@@ -23,5 +23,5 @@ resource "aws_route53_record" "frontend" {
   name    = "frontend-dev"
   type    = "A"
   ttl     = 30
-  records = ["aws_instance.frontend.private_ip"]
+  records = [aws_instance.frontend.private_ip]
 }
