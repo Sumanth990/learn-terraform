@@ -6,10 +6,6 @@ output "test" {
   value = null_resource.test[0]
 }
 
-output "test1" {
-  value = null_resource.test[10].id
-}
-
 output "test2" {
   value = null_resource.test.*
 }
