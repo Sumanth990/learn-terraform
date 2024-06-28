@@ -23,5 +23,5 @@ resource "aws_route53_record" "frontend" {
   name    = "frontend-dev"
   type    = "A"
   ttl     = 30
-  records = aws_instance.frontend.private_ip
+  records = ["aws_instance.frontend.private_ip"]
 }
