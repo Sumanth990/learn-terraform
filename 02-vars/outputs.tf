@@ -30,3 +30,7 @@ output "Fruits_details" {
   value = "Fruit name - Apple, Quantity - ${var.fruits["apple"]["quantity"]}"
 }
 
+
+
+
+
