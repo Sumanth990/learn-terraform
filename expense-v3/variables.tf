@@ -7,7 +7,7 @@ variable "vpc_security_group_ids" {
 }
 
 variable "components" {
-  default = ["frontend", "backend", "mysql"]
+  default = [ "backend", "frontend", "mysql"]
 }
 
 variable "zone_id" {
