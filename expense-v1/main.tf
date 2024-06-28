@@ -1,7 +1,7 @@
 resource "aws_instance" "frontend" {
-  ami                    = "ami-0b4f379183e5706b9"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-05eadccf3fd7c62d1"]
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "frontend-dev"
@@ -9,9 +9,9 @@ resource "aws_instance" "frontend" {
 }
 
 resource "aws_instance" "backend" {
-  ami                    = "ami-0b4f379183e5706b9"
-  instance_type          = "t3.micro"
-  vpc_security_group_ids = ["sg-05eadccf3fd7c62d1"]
+  ami                    = var.ami
+  instance_type          = var.instance_type
+  vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
     Name = "backend-dev"
@@ -19,7 +19,7 @@ resource "aws_instance" "backend" {
 }
 
 resource "aws_route53_record" "frontend" {
-  zone_id = "Z0531898YLDJ6DDU67F4"
+  zone_id = var.zone_id
   name    = "frontend-dev"
   type    = "A"
   ttl     = 30
