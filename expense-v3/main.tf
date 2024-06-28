@@ -5,15 +5,15 @@ resource "aws_instance" "main" {
   vpc_security_group_ids = var.vpc_security_group_ids
 
   tags = {
-    Name = element(var.components, count.index )
+    Name = element(var.components, count.index)
   }
 }
 
 resource "aws_route53_record" "main" {
   count   = length(var.components)
   zone_id = var.zone_id
-  name    = element(var.components, count.index)-dev
+  name    = "${element(var.components, count.index)}-dev"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.main.private_ip]
+  records = [aws_instance.main.*.private_ip]
 }
