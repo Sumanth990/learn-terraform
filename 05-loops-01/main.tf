@@ -7,7 +7,7 @@ output "test" {
 }
 
 output "test1" {
-  value = null_resource.test[10]
+  value = null_resource.test[10].id
 }
 
 output "test2" {
